@@ -102,9 +102,9 @@ The controlled outputs are:
 - a scalar **toxicity index (ToxScore)**.
 
 Two datasets are provided:
-- **`NPdemo_data_2x1.xlsx`**:  
+- **`NP_demo_data_2x1.xlsx`**:  
   A reduced configuration with **2 inputs and 1 output**, used to demonstrate the workflow on a smaller system.
-- **`NPdemo_data_6x2.csv`**:  
+- **`NP_demo_data_6x2.csv`**:  
   A full configuration with **6 inputs and 2 outputs**, corresponding to the complete reactor network.
 
 These files are included to demonstrate:
