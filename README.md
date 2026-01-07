@@ -1,12 +1,13 @@
 # Predictive-Control-System-Greece4.0
+
 ## Overview
-This repository documents a widget-driven, end-to-end workflow to generate RBFNNs as predictive models in a control framework and to integrate them into a nonlinear Model Predictive Control (MPC) scheme for closed-loop simulation and analysis, developed for the project **"Greece4.0: Network of Excellence for the Development, Dissemination and Application of Digital Transformation Technologies in the Greek Manufacturing Industry"**.
+This repository documents a widget-driven, end-to-end workflow to generate Radial Basis Function Neural Networks (RBFNNs) as predictive models in a control framework and to integrate them into a nonlinear Model Predictive Control (MPC) scheme for closed-loop simulation and analysis. The work is developed in the context of the project **“Greece4.0: Network of Excellence for the Development, Dissemination and Application of Digital Transformation Technologies in the Greek Manufacturing Industry.”**
 
 ## Table of Contents
 - [Overview](#overview)
 - [Notebooks](#notebooks)
 - [Demo Case Study](#demo-case-study)
-- [Recommened Workflow](#recommended-workflow)
+- [Recommended Workflow](#recommended-workflow)
 - [Execution Environment](#execution-environment)
 - [License](#license)
 
@@ -14,6 +15,7 @@ The repository is organized around two main notebooks, each corresponding to a d
 1. Predictive model generation (RBFNN training and benchmarking)
 2. Closed-loop control using MPC with trained RBFNN models
 
+---
 
 ## Notebooks
 
@@ -41,13 +43,14 @@ This notebook is used to **generate and evaluate RBFNN predictive models** from 
 **Outputs**
 - Trained RBFNN models exported as:
   - `RBF_plant.mat` — used as the plant model
-  - `RBF_mpc.mat` — used inside the MPC formulation
+  - `RBF_mpc.mat` — used inside the MPC formulation  
 
 These files are **required** by the MPC notebook.
 
 ---
 
 ### 2. MPC_RBFNN_Control_System_Greece4_0.ipynb  
+
 This notebook implements a **closed-loop nonlinear MPC controller** using the RBFNN models trained in the previous step.
 
 The workflow is fully widget-driven and divided into logical sections.
@@ -56,9 +59,9 @@ The workflow is fully widget-driven and divided into logical sections.
 - Loading RBFNN models (`RBF_plant.mat`, `RBF_mpc.mat`)
 - Initial steady-state estimation (from dataset or manually)
 - MPC tuning:
-  - Tracking weights (Q)
-  - Move suppression weights (R)
-  - Soft constraint penalties
+  - Tracking weights (Matrix Q)
+  - Move suppression weights (Matrix R)
+  - Penalties to implement soft constraints on output bounds
   - Control and prediction horizons
 - Case study configuration:
   - Simulation time and sampling time
@@ -72,13 +75,25 @@ The workflow is fully widget-driven and divided into logical sections.
 **Required inputs**
 - `RBF_plant.mat` (generated using `Predictive_RBFNNs_for_Control_Systems_Greece4_0.ipynb`)
 - `RBF_mpc.mat` (generated using `Predictive_RBFNNs_for_Control_Systems_Greece4_0.ipynb`)
-- The data file used in training (to define initial steady state conditions and extract variable names and units for plots).
+- The dataset used during training (to define initial steady-state conditions and extract variable names and units for plots)
 
 **Outputs**
 - Closed-loop simulation results stored in memory
 - Interactive plots of:
   - Outputs vs setpoints
   - Inputs with bounds
+- **MPC parameter report**, exported after tuning:
+  - CSV file (machine-readable)
+  - TXT file (human-readable summary)
+
+The MPC parameter report contains:
+- Control Horizon  
+- Prediction Horizon  
+- Matrix Q diagonal entries (setpoint tracking weights)  
+- Matrix R diagonal entries (input move suppression weights)  
+- Penalties used to implement soft constraints on output bounds  
+
+These reports allow transparent documentation and reproducibility of controller tuning choices.
 
 ---
 
@@ -95,23 +110,27 @@ The controlled outputs are:
 - a scalar **toxicity index (ToxScore)**.
 
 Two datasets are provided:
-- **`AgNPs_demo_data_2x1.xlsx`**:  
+- **`NPdemo_data_2x1.xlsx`**  
   A reduced configuration with **2 inputs and 1 output**, used to demonstrate the workflow on a smaller system.
-- **`AgNPs_demo_data_6x2.csv`**:  
+- **`NPdemo_data_6x2.csv`**  
   A full configuration with **6 inputs and 2 outputs**, corresponding to the complete reactor network.
 
 These files are included to demonstrate:
 - compatibility with both **Excel (`.xlsx`) and CSV (`.csv`) formats**, and  
 - flexibility of the workflow with respect to the **number of inputs and outputs**.
 
+---
+
 ## Recommended Workflow
 
-1. Prepare your dataset with clearly labeled time, input and output signals.  
-2. Run the RBFNN training notebook (`Predictive_RBFNNs_for_Control_Systems_Greece4_0.ipynb`) to generate predictive models.  
-3. Export the trained models to `.mat` files.
-   > **Suggestion:** Use an RBFNN with fewer nodes for the MPC framework (smaller number of fuzzy subsets), and an RBFNN with more nodes to serve as the plant in the closed-loop simulations.
-5. In the simulation notebook (`MPC_RBFNN_Control_System_Greece4_0.ipynb`) load the MPC and plant model you have exported.
-6. Tune the controller, define a case study, and run the closed-loop simulator to visualize your results.
+1. Prepare your dataset with clearly labeled time, input, and output signals.  
+2. Open the desired notebook and **run all cells once** (`Run → Run All`).  
+   > After this initial execution, all widgets are initialized and the notebook can be used interactively **without re-running cells**.
+3. Run the RBFNN training notebook (`Predictive_RBFNNs_for_Control_Systems_Greece4_0.ipynb`) to generate predictive models.  
+4. Export the trained models to `.mat` files.  
+   > **Suggestion:** Use an RBFNN with fewer nodes for the MPC framework (smaller number of fuzzy subsets), and an RBFNN with more nodes to serve as the plant in closed-loop simulations.
+5. Open the simulation notebook (`MPC_RBFNN_Control_System_Greece4_0.ipynb`) and load the MPC and plant models you exported.
+6. Tune the controller, define a case study, and run the closed-loop simulation to visualize results and export the MPC parameter report.
 
 ---
 
@@ -131,5 +150,5 @@ The notebooks are designed to run in:
 ---
 
 ## License
-This project is licensed under the **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License**.
+This project is licensed under the **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License**.  
 See the file `LICENSE-CC-BY-NC-SA.txt` for details.
