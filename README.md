@@ -5,7 +5,7 @@ This repository documents a widget-driven, end-to-end workflow to generate RBFNN
 ## Table of Contents
 - [Overview](#overview)
 - [Notebooks](#notebooks)
-- [Provided Data Files](#provided-data-files)
+- [Demo Case Study](#demo-case-study)
 - [Recommened Workflow](#recommended-workflow)
 - [Execution Environment](#execution-environment)
 - [License](#license)
@@ -89,7 +89,7 @@ No files are overwritten unless explicitly saved by the user.
 
 ---
 
-## Provided Data Files (case study)
+## Demo Case Study
 
 The repository includes two example datasets corresponding to a case study on the continuous production of silver nanoparticles (Ag NPs) in a reactor network.
 
