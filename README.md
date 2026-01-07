@@ -5,6 +5,7 @@ This repository documents a widget-driven, end-to-end workflow to generate RBFNN
 ## Table of Contents
 - [Overview](#overview)
 - [Notebooks](#notebooks)
+- [Provided Data Files](#provided-data-files)
 - [Recommened Workflow](#recommended-workflow)
 - [Execution Environment](#execution-environment)
 - [License](#license)
@@ -87,6 +88,28 @@ Optionally:
 No files are overwritten unless explicitly saved by the user.
 
 ---
+
+## Provided Data Files (case study)
+
+The repository includes two example datasets corresponding to a case study on the continuous production of silver nanoparticles (Ag NPs) in a reactor network.
+
+The process consists of **five plug-flow reactors (PFRs) in series**. The manipulated variables are:
+- the flow rates of **AgNO₃** in all five reactors, and  
+- the flow rate of **SC/TA** in the first reactor.
+
+The controlled outputs are:
+- the **mean particle diameter** of the produced silver nanoparticles in the product stream, and  
+- a scalar **toxicity index (ToxScore)**.
+
+Two datasets are provided:
+- **`NPdemo_data_2x1.xlsx`**:  
+  A reduced configuration with **2 inputs and 1 output**, used to demonstrate the workflow on a smaller system.
+- **`NPdemo_data_6x2.csv`**:  
+  A full configuration with **6 inputs and 2 outputs**, corresponding to the complete reactor network.
+
+These files are included to demonstrate:
+- compatibility with both **Excel (`.xlsx`) and CSV (`.csv`) formats**, and  
+- flexibility of the workflow with respect to the **number of inputs and outputs**.
 
 ## Recommended Workflow
 
