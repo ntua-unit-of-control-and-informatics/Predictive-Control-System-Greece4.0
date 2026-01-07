@@ -70,22 +70,15 @@ The workflow is fully widget-driven and divided into logical sections.
 - Visualization of outputs, inputs, setpoints, and constraints
 
 **Required inputs**
-- `RBF_plant.mat`
-- `RBF_mpc.mat`
-
-These are typically generated using  
-`Predictive_RBFNNs_for_Control_Systems_Greece4_0.ipynb`.
-
-Optionally:
-- A dataset file for initializing steady-state conditions
+- `RBF_plant.mat` (generated using `Predictive_RBFNNs_for_Control_Systems_Greece4_0.ipynb`)
+- `RBF_mpc.mat` (generated using `Predictive_RBFNNs_for_Control_Systems_Greece4_0.ipynb`)
+- The data file used in training (to define initial steady state conditions and extract variable names and units for plots).
 
 **Outputs**
 - Closed-loop simulation results stored in memory
 - Interactive plots of:
   - Outputs vs setpoints
   - Inputs with bounds
-
-No files are overwritten unless explicitly saved by the user.
 
 ---
 
