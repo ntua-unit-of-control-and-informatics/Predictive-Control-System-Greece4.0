@@ -1,6 +1,6 @@
 # Predictive-Control-System-Greece4.0
 ## Overview
-This repository documents a widget-driven, end-to-end workflow to generate RBFNNs as predictive models in a control framework and to integrate them into a nonlinear Model Predictive Control (MPC) scheme for closed-loop simulation and analysis, developed for the project "Greece4.0: Network of Excellence for the Development, Dissemination and Application of Digital Transformation Technologies in the Greek Manufacturing Industry".
+This repository documents a widget-driven, end-to-end workflow to generate RBFNNs as predictive models in a control framework and to integrate them into a nonlinear Model Predictive Control (MPC) scheme for closed-loop simulation and analysis, developed for the project **"Greece4.0: Network of Excellence for the Development, Dissemination and Application of Digital Transformation Technologies in the Greek Manufacturing Industry"**.
 
 ## Table of Contents
 - [Overview](#overview)
