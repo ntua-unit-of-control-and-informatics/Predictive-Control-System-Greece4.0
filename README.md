@@ -16,7 +16,7 @@ The repository is organized around two main notebooks, each corresponding to a d
 
 ## Notebooks
 
-### 1. Predictive_RBFNNs_for_control_systems_Greece4_0.ipynb  
+### 1. Predictive_RBFNNs_for_Control_Systems_Greece4_0.ipynb  
 
 This notebook is used to **generate and evaluate RBFNN predictive models** from historical process data.
 
@@ -73,7 +73,7 @@ The workflow is fully widget-driven and divided into logical sections.
 - `RBF_mpc.mat`
 
 These are typically generated using  
-`Predictive_RBFNNs_for_control_systems_Greece4_0.ipynb`.
+`Predictive_RBFNNs_for_Control_Systems_Greece4_0.ipynb`.
 
 Optionally:
 - A dataset file for initializing steady-state conditions
