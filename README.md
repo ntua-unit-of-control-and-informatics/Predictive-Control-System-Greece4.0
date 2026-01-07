@@ -113,11 +113,12 @@ These files are included to demonstrate:
 
 ## Recommended Workflow
 
-1. Prepare your dataset with clearly labeled input and output signals  
-2. Run the RBFNN training notebook to generate predictive models  
-3. Export the trained models to `.mat` files  
-4. Run the MPC notebook
-5. Load the exported models, tune the controller, define a case study, and simulate
+1. Prepare your dataset with clearly labeled time, input and output signals.  
+2. Run the RBFNN training notebook (`Predictive_RBFNNs_for_Control_Systems_Greece4_0.ipynb`) to generate predictive models.  
+3. Export the trained models to `.mat` files.
+   > **Suggestion:** Use an RBFNN with fewer nodes for the MPC framework (smaller number of fuzzy subsets), and an RBFNN with more nodes to serve as the plant in the closed-loop simulations.
+5. In the simulation notebook (`MPC_RBFNN_Control_System_Greece4_0.ipynb`) load the MPC and plant model you have exported.
+6. Tune the controller, define a case study, and run the closed-loop simulator to visualize your results.
 
 ---
 
